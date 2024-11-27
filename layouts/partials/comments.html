@@ -1,3 +1,25 @@
 {{- /* Comments area start */ -}}
 {{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
+
+<!--
+test 3
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      initBlueskyComments('bluesky-comments', { author: 'samantha.wiki' });
+    });
+</script>
+-->
+
+{{ if (isset .Params "bsky" )}}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const uri = '{{ .Params.Bsky }}';
+    if (uri) {
+      initBlueskyComments('bluesky-comments', uri);
+    }
+  });
+</script>
+<div id="bluesky-comments"></div>
+{{ end }}
+
 {{- /* Comments area end */ -}}
